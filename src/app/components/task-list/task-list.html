@@ -1,0 +1,30 @@
+<div class="task-list-container">
+  <h2>
+    <span class="icon-list">📝</span>
+    Task List
+  </h2>
+  <ul *ngIf="tasks.length > 0; else noTasks">
+    <li *ngFor="let task of tasks" [class.completed]="task.completed">
+      <div class="task-main">
+        <span [ngClass]="{ done: task.completed }" class="task-title">
+          {{ task.title }}
+        </span>
+        <span class="task-date">
+          <i class="icon-calendar"></i>
+          {{ task.createdAt | date:'short' }}
+        </span>
+      </div>
+      <div class="task-tags">
+        <span *ngIf="task.completed" class="completed-label">✔ Completed</span>
+        <!-- Add priority, tags, or actions here -->
+        <!-- <button class="action-btn">Edit</button> -->
+      </div>
+    </li>
+  </ul>
+  <ng-template #noTasks>
+    <div class="no-tasks">
+      <img src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png" width="80" alt="No tasks"/>
+      <p>No tasks to display.</p>
+    </div>
+  </ng-template>
+</div>

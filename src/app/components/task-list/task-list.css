@@ -1,0 +1,140 @@
+:root {
+  --primary: #4361ee;
+  --primary-light: #e3eefd;
+  --accent: #b5179e;
+  --success: #43aa8b;
+  --text-main: #22223b;
+  --text-secondary: #4a4e69;
+  --bg: #f8f9fa;
+  --bg-card: #fff;
+  --shadow: 0 4px 16px rgba(67, 97, 238, 0.08);
+}
+
+body {
+  background: var(--bg);
+}
+
+.task-list-container {
+  max-width: 480px;
+  margin: 32px auto;
+  padding: 28px 24px 32px 24px;
+  background: var(--bg-card);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  font-family: "Segoe UI", "Roboto", Arial, sans-serif;
+}
+
+h2 {
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 26px;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-list {
+  font-size: 1.3em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background: var(--primary-light);
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  padding: 18px 18px 13px 18px;
+  box-shadow: 0 1px 7px rgba(67,97,238,0.06);
+  transition: box-shadow 0.2s, background 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+li:hover {
+  background: #e9eefd;
+  box-shadow: 0 2px 12px rgba(67,97,238,0.13);
+}
+
+.task-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.task-title {
+  font-size: 1.08em;
+  font-weight: 600;
+  color: var(--text-main);
+  word-break: break-word;
+  transition: color 0.2s;
+}
+
+.done {
+  text-decoration: line-through;
+  color: var(--accent);
+  font-style: italic;
+  opacity: 0.65;
+}
+
+.task-date {
+  font-size: 0.95em;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-calendar:before {
+  content: "📅";
+  margin-right: 2px;
+}
+
+.completed-label {
+  color: var(--success);
+  background: #e6f9ea;
+  border-radius: 4px;
+  padding: 2px 12px;
+  margin-left: 0;
+  font-size: 0.95em;
+  font-weight: 500;
+  border: 1px solid #b4eed3;
+  box-shadow: 0 1px 3px #b4eed34c;
+}
+
+.task-tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+span {
+  margin-right: 3px;
+}
+
+.no-tasks {
+  text-align: center;
+  color: var(--text-secondary);
+  opacity: 0.9;
+  margin-top: 32px;
+}
+.no-tasks img {
+  margin-bottom: 14px;
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  .task-list-container {
+    max-width: 99vw;
+    padding: 14px 2vw;
+  }
+}
