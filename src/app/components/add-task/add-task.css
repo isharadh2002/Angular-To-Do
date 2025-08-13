@@ -1,0 +1,85 @@
+.add-task-card {
+  max-width: 410px;
+  margin: 48px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(67, 97, 238, 0.12);
+  padding: 38px 30px 32px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-task-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.add-task-header .icon {
+  font-size: 2.6rem;
+  color: #4361ee;
+}
+
+.add-task-header h2 {
+  font-weight: 700;
+  color: #22223b;
+  font-size: 1.55rem;
+  margin: 0;
+}
+
+.add-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-task-form label {
+  font-weight: 600;
+  color: #3a3a3a;
+  margin-bottom: 3px;
+}
+
+.add-task-form input[type="text"],
+.add-task-form input[type="date"],
+.add-task-form textarea {
+  border: 1.5px solid #ddd;
+  border-radius: 7px;
+  padding: 9px 11px;
+  font-size: 1rem;
+  background: #f8faff;
+  margin-bottom: 6px;
+  outline: none;
+  transition: border 0.18s;
+}
+
+.add-task-form input[type="text"]:focus,
+.add-task-form input[type="date"]:focus,
+.add-task-form textarea:focus {
+  border-color: #4361ee;
+}
+
+.add-task-form button[type="submit"] {
+  margin-top: 8px;
+  background: linear-gradient(90deg, #4361ee 0%, #b5179e 100%);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 11px 0;
+  font-size: 1.09rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.19s, box-shadow 0.19s;
+  box-shadow: 0 2px 8px #b5179e1e;
+}
+
+.add-task-form button[type="submit"]:hover {
+  background: linear-gradient(90deg, #b5179e 0%, #4361ee 100%);
+}
+
+@media (max-width: 540px) {
+  .add-task-card {
+    padding: 22px 6vw 24px 6vw;
+  }
+}

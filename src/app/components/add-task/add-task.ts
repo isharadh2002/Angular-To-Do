@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-add-task',
-  imports: [],
   standalone: true,
+  imports: [FormsModule, RouterLink, RouterLinkActive], // Import router directives!
   templateUrl: './add-task.html',
-  styleUrl: './add-task.css'
-
+  styleUrls: ['./add-task.css']
 })
 export class AddTask {
-
+  onSubmit() {
+    // handle form logic
+  }
 }

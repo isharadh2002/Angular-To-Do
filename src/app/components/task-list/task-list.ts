@@ -8,7 +8,7 @@ import { ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.html',
-  styleUrl: './task-list.css',
+  styleUrls: ['./task-list.css'],
   standalone: true,
   imports: [NgForOf, NgIf, NgClass, DatePipe],
   encapsulation: ViewEncapsulation.Emulated,

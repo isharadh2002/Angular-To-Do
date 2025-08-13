@@ -1,1 +1,21 @@
-<p>add-task works!</p>
+<div class="add-task-card">
+  <div class="add-task-header">
+    <span class="material-symbols-outlined icon">add_task</span>
+    <h2>Add New Task</h2>
+  </div>
+  <form class="add-task-form" (ngSubmit)="onSubmit()" autocomplete="off">
+    <label for="title">Task Title</label>
+    <input id="title" name="title" type="text" placeholder="Enter task title" required />
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="3" placeholder="Describe the task"></textarea>
+
+    <label for="due">Due Date</label>
+    <input id="due" name="due" type="date" />
+
+    <button type="submit">Add Task</button>
+  </form>
+</div>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
