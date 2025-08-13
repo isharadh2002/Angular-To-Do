@@ -1,0 +1,21 @@
+<p>json-manager works!</p>
+<div class="json-manager">
+    <h3>JSON Data Management</h3>
+
+    <div class="json-actions">
+        <button (click)="exportToJson()" class="export-btn">
+            📄 Export Tasks to JSON
+        </button>
+
+        <input type="file" (change)="onFileSelected($event)" accept=".json" #fileInput style="display: none;">
+        <button (click)="fileInput.click()" class="import-btn">
+            📁 Import Tasks from JSON
+        </button>
+    </div>
+
+    <div *ngIf="exportedJson" class="exported-json">
+        <h4>Exported JSON Data:</h4>
+        <textarea readonly [value]="exportedJson" rows="10" cols="50"></textarea>
+        <p><small>Copy this JSON data to save it manually to a file.</small></p>
+    </div>
+</div>

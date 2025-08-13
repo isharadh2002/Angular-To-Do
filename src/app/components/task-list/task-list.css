@@ -51,7 +51,7 @@ li {
   border-radius: 10px;
   margin-bottom: 18px;
   padding: 18px 18px 13px 18px;
-  box-shadow: 0 1px 7px rgba(67,97,238,0.06);
+  box-shadow: 0 1px 7px rgba(67, 97, 238, 0.06);
   transition: box-shadow 0.2s, background 0.2s;
   display: flex;
   flex-direction: column;
@@ -60,7 +60,7 @@ li {
 
 li:hover {
   background: #e9eefd;
-  box-shadow: 0 2px 12px rgba(67,97,238,0.13);
+  box-shadow: 0 2px 12px rgba(67, 97, 238, 0.13);
 }
 
 .task-main {
@@ -127,6 +127,7 @@ span {
   opacity: 0.9;
   margin-top: 32px;
 }
+
 .no-tasks img {
   margin-bottom: 14px;
   opacity: 0.8;
@@ -137,4 +138,38 @@ span {
     max-width: 99vw;
     padding: 14px 2vw;
   }
+}
+
+.action-btn,
+.delete-btn {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8em;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.action-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.action-btn:hover {
+  background: var(--accent);
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  margin-left: 8px;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+
+.task-title {
+  cursor: pointer;
 }

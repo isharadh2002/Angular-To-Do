@@ -1,44 +1,51 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Task } from '../models/task.model';
+import { JsonFileService } from './json-file.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  private apiUrl = '/api/tasks';
-
-  constructor(private http: HttpClient) {}
+  constructor(private jsonFileService: JsonFileService) { }
 
   // Get all tasks
   getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.apiUrl);
+    return this.jsonFileService.getTasks();
   }
 
   // Get single task by id
   getTask(id: number): Observable<Task> {
-    return this.http.get<Task>(`${this.apiUrl}/${id}`);
+    return this.jsonFileService.getTask(id);
   }
 
   // Add a new task
-  addTask(task: Task): Observable<Task> {
-    return this.http.post<Task>(this.apiUrl, task);
+  addTask(task: Omit<Task, 'id' | 'createdAt' | 'updatedAt'>): Observable<Task> {
+    return this.jsonFileService.addTask(task);
   }
 
   // Update a task
   updateTask(task: Task): Observable<Task> {
-    return this.http.put<Task>(`${this.apiUrl}/${task.id}`, task);
+    return this.jsonFileService.updateTask(task);
   }
 
   // Delete a task
   deleteTask(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.jsonFileService.deleteTask(id);
   }
 
   // Mark task as complete/incomplete
   toggleTaskCompletion(task: Task): Observable<Task> {
-    const updatedTask = { ...task, completed: !task.completed };
-    return this.updateTask(updatedTask);
+    return this.jsonFileService.toggleTaskCompletion(task);
+  }
+
+  // Export tasks as JSON
+  exportTasks(): string {
+    return this.jsonFileService.exportTasksAsJson();
+  }
+
+  // Import tasks from JSON
+  importTasks(jsonString: string): Observable<Task[]> {
+    return this.jsonFileService.importTasksFromJson(jsonString);
   }
 }

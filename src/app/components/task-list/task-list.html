@@ -6,7 +6,7 @@
   <ul *ngIf="tasks.length > 0; else noTasks">
     <li *ngFor="let task of tasks" [class.completed]="task.completed">
       <div class="task-main">
-        <span [ngClass]="{ done: task.completed }" class="task-title">
+        <span [ngClass]="{ done: task.completed }" class="task-title" (click)="toggleTask(task)">
           {{ task.title }}
         </span>
         <span class="task-date">
@@ -16,14 +16,14 @@
       </div>
       <div class="task-tags">
         <span *ngIf="task.completed" class="completed-label">✔ Completed</span>
-        <!-- Add priority, tags, or actions here -->
-        <!-- <button class="action-btn">Edit</button> -->
+        <button *ngIf="!task.completed" class="action-btn" (click)="toggleTask(task)">Mark Complete</button>
+        <button class="delete-btn" (click)="deleteTask(task.id)">Delete</button>
       </div>
     </li>
   </ul>
   <ng-template #noTasks>
     <div class="no-tasks">
-      <img src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png" width="80" alt="No tasks"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png" width="80" alt="No tasks" />
       <p>No tasks to display.</p>
     </div>
   </ng-template>

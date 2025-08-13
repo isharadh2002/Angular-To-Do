@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TaskService } from './task.service';
+import { JsonFileService } from './json-file.service';
 
-describe('Task', () => {
-  let service: TaskService;
+describe('JsonFileService', () => {
+  let service: JsonFileService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TaskService);
+    service = TestBed.inject(JsonFileService);
   });
 
   it('should be created', () => {

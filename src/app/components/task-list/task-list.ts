@@ -17,7 +17,7 @@ export class TaskListComponent implements OnInit {
   tasks: Task[] = [];
   filter: 'all' | 'active' | 'completed' = 'all';
 
-  constructor(private taskService: TaskService, private route: ActivatedRoute) {}
+  constructor(private taskService: TaskService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -36,5 +36,29 @@ export class TaskListComponent implements OnInit {
         this.tasks = tasks;
       }
     });
+  }
+
+  toggleTask(task: Task) {
+    this.taskService.toggleTaskCompletion(task).subscribe({
+      next: () => {
+        this.loadTasks(); // Refresh the list
+      },
+      error: (error) => {
+        console.error('Error toggling task:', error);
+      }
+    });
+  }
+
+  deleteTask(id: number) {
+    if (confirm('Are you sure you want to delete this task?')) {
+      this.taskService.deleteTask(id).subscribe({
+        next: () => {
+          this.loadTasks(); // Refresh the list
+        },
+        error: (error) => {
+          console.error('Error deleting task:', error);
+        }
+      });
+    }
   }
 }
