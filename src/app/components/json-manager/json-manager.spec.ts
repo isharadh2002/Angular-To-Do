@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JsonManager } from './json-manager';
+import { JsonManagerComponent as JsonManager } from './json-manager';
 
 describe('JsonManager', () => {
   let component: JsonManager;
@@ -10,7 +10,7 @@ describe('JsonManager', () => {
     await TestBed.configureTestingModule({
       imports: [JsonManager]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(JsonManager);
     component = fixture.componentInstance;
